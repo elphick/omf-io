@@ -1,10 +1,13 @@
-.. elphick-template documentation master file, created by
-   sphinx-quickstart on Sun Aug  6 10:54:13 2023.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+Welcome to omf-io's documentation!
+==================================
 
-Welcome to elphick-template's documentation!
-============================================
+.. note::
+
+   This package is a work in progress and is not yet ready for production use.
+   Please check back later for updates.
+
+   This is not a GMG Group managed project, but leverages the great work by all contributors of the OMF project.
+
 
 .. include:: ../../README.md
    :parser: myst_parser.sphinx_
@@ -18,9 +21,11 @@ Welcome to elphick-template's documentation!
 
    usage/installation
    usage/quickstart
+   user_guide
    auto_examples/index
    glossary/*
    api/modules
+   todo
    license/*
 
 

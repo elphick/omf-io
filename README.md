@@ -1,29 +1,25 @@
-# elphick-template
+# omf-io
 
-This is a template for a python package including:
+This package provides a simple interface to read and write OMF files using the [Open Mining Format package (omf)](https://omf.readthedocs.io/en/latest/).
 
-- a namespace directory (called namespace)
-- a package directory (called package)
-- tests
-- docs
-- github actions
+The aim of the package is to "Democratise the OMF format" - reducing the barrier to entry for python users to adopt OMF,
+by enabling conversion of existing data into and out of OMF files. This could be for tabular block models, raster files, or any other OMF element.
 
-Actions to perform once you have created your repo from this template:
+## Installation
 
-1. Change references to elphick-template, including in the pyproject.toml file
-2. Change the namespace and package folder names and module.py filename
-3. Modify the content of the following rst pages:
-    - api/modules
-    - installation
-    - quickstart
-    - glossary
-4. Confirm the licence file and modify accordingly
-5. Consider moving matplotlib and plotly from dev dependencies to your package dependencies if you use them.
+```bash
+pip install omf-io
+```
 
-One of the advantages of the template is the doc publishing onto a gh-pages branch is already configured.
-To leverage this be sure to check the "include all branches" checkbox when creating a new repository from the template.
+## Usage
 
-[![screenshot](https://elphick.github.io/elphick-template/_static/new_repo_from_template.png)](https://elphick.github.io/elphick-template/_static/new_repo_from_template.png)
+```python
+from pathlib import Path
+from omf_io.gridsurface.grid_surface import GridSurfaceIO
 
-Oh, you'll likely need to set-up a github token for the docs_to_gh_pages.yml action to work.
-TODO: Confirm and add better instruction here.
+# Importing data
+grid_surface = GridSurfaceIO.from_raster(Path("input_raster.tif"))
+
+# Exporting data
+grid_surface.to_raster(Path("output_raster.tif"))
+```

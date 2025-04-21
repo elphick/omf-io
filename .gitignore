@@ -162,3 +162,4 @@ cython_debug/
 /docs/source/auto_examples/
 
 /.idea
+/docs/source/sg_execution_times.rst

@@ -3,10 +3,10 @@ import sys
 
 image_scrapers = ('matplotlib')
 
-import omf_io
-
 sys.path.insert(0, os.path.abspath('..'))
 sys.path.insert(0, os.path.abspath('../..'))
+
+import omf_io
 
 # -- Project information -----------------------------------------------------
 

@@ -8,20 +8,23 @@ packages = [{ include = "omf_io" }]
 
 [tool.poetry.dependencies]
 python = ">=3.10,<3.13"
+setuptools = "^79.0.0"  # required by ydata-profiling
 pandas = "^2.2.3"
 omf = { version = ">=2.0.0a0", allow-prereleases = true }  # the original native python omf package.
 #omf2 = "^0.1.0"  # the rust backed python omf package.
 pandera = { extras = ['io'], version = "^0.23.1", optional = true }
 ydata-profiling = { version = "^4.9.0", optional = true }
-rioxarray = { version = "^0.18.2", optional = true }
-setuptools = "^79.0.0"
+rioxarray = { version = "^0.19.0", optional = true }
 geopandas = { version = "^1.0.1", optional = true }
+pyvista = { version = "^0.45.0", optional = true }
 
 [tool.poetry.extras]
-raster = ["rioxarray"]
+pyvista = ["pyvista"]
+rioxarray = ["rioxarray"]
 geopandas = ["geopandas"]
 validate = ["pandera"]
 profile = ["ydata-profiling"]
+all = ["pyvista", "rioxarray", "geopandas", "pandera", "ydata-profiling"]
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.2.1"

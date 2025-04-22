@@ -13,14 +13,17 @@ from omf_io.utils.file import write_omf_element
 try:
     import geopandas as gpd
     from shapely.geometry import Point
+    import pyvista as pv
 except ImportError:
     gpd = None
     Point = None
+    pv = None
 
 from typing import TYPE_CHECKING, Union
 
 if TYPE_CHECKING:
     import geopandas as gpd  # For type hinting only
+    import pyvista as pv
 
 
 def export_to_csv(data: pd.DataFrame, output_file: Path):
@@ -104,3 +107,33 @@ def export_to_ply(data: pd.DataFrame, output_file: Path, binary: bool = False) -
                 f.write(" ".join(map(str, vertex)) + " " + " ".join(map(str, row)) + "\n")
 
     return output_file
+
+
+@requires_dependency("pyvista", "pv")
+def export_to_pyvista(data: pd.DataFrame) -> "pv.PolyData":
+    """
+    Convert a pandas DataFrame with a MultiIndex to a PyVista PolyData object.
+
+    Args:
+        data (pd.DataFrame): The input DataFrame with a MultiIndex (x, y, z).
+
+    Returns:
+        pv.PolyData: A PyVista PolyData object representing the point cloud.
+    """
+    if not isinstance(data.index, pd.MultiIndex) or data.index.names != ["x", "y", "z"]:
+        raise ValueError("DataFrame must have a MultiIndex with levels ['x', 'y', 'z'].")
+
+    # Extract coordinates from the MultiIndex
+    points = data.index.to_frame(index=False).values
+
+    # Create a PyVista PolyData object
+    polydata = pv.PolyData(points)
+
+    # Add attributes as point data
+    for column in data.columns:
+        # Check if the column contains tuples and convert them to strings
+        if data[column].apply(lambda x: isinstance(x, tuple)).any():
+            polydata.point_data[column] = data[column].apply(str).values
+        else:
+            polydata.point_data[column] = data[column].values
+    return polydata

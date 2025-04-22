@@ -11,6 +11,7 @@ from pathlib import Path
 
 import pandas as pd
 import geopandas as gpd
+import pyvista as pv
 
 from omf_io.pointset import PointSetIO
 from omf_io.reader import OMFReader
@@ -43,8 +44,15 @@ csv_point_data = pd.read_csv(csv_filepath)
 csv_point_data
 
 # %%
-# Geodataframe object
-# ~~~~~~~~~~~~~~~~~~~
+# Pandas DataFrame object
+# ~~~~~~~~~~~~~~~~~~~~~~~
+
+df: pd.DataFrame = PointSetIO(data=point_data).to_pandas()
+df
+
+# %%
+# GeoPandas geodataframe object
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 gdf: gpd.geodataframe = PointSetIO(data=point_data).to_geopandas()
 gdf
@@ -59,6 +67,13 @@ ply_filepath: Path = PointSetIO(data=point_data).to_ply(out_filepath.with_suffix
 with ply_filepath.open('r') as f:
     ply_data = f.readlines()
 print(''.join(ply_data))
+
+# %%
+# PyVista Polydata object
+# ~~~~~~~~~~~~~~~~~~~~~~~
+
+poly: pv.PolyData = PointSetIO(data=point_data).to_pyvista()
+poly.point_data
 
 # %%
 # OMF file

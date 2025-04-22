@@ -2,6 +2,7 @@ import ast
 import struct
 from typing import Union
 
+import numpy as np
 import pandas as pd
 import omf
 from pathlib import Path
@@ -11,13 +12,16 @@ from omf_io.utils.decorators import requires_dependency
 
 try:
     import geopandas as gpd
+    import pyvista as pv
 except ImportError:
     gpd = None
+    pv = None
 
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
     import geopandas as gpd  # For type hinting only
+    import pyvista as pv  # For type hinting only
 
 
 def import_from_csv(file_path: Path) -> pd.DataFrame:
@@ -163,3 +167,30 @@ def _import_points_from_ply_binary(file_obj, header) -> pd.DataFrame:
     df = pd.DataFrame(points, columns=columns)
     df.set_index(['x', 'y', 'z'], inplace=True)
     return df
+
+
+@requires_dependency("pyvista", "pv")
+def import_from_pyvista(polydata: "pv.PolyData") -> pd.DataFrame:
+    """
+    Convert a PyVista PolyData object to a pandas DataFrame with a MultiIndex.
+
+    Args:
+        polydata (pv.PolyData): The input PyVista PolyData object.
+
+    Returns:
+        pd.DataFrame: A DataFrame with a MultiIndex (x, y, z) and attribute columns.
+    """
+    # Extract point coordinates
+    points = polydata.points
+    if points is None or len(points) == 0:
+        raise ValueError("PolyData object contains no points.")
+
+    # Create a DataFrame with a MultiIndex for coordinates
+    data = pd.DataFrame(np.array(points), columns=["x", "y", "z"])
+    data.set_index(["x", "y", "z"], inplace=True)
+
+    # Add point data attributes
+    for name in polydata.point_data.keys():
+        data[name] = polydata.point_data[name]
+
+    return data

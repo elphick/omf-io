@@ -11,6 +11,7 @@ from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
     import geopandas as gpd  # For type hinting only
+    import pyvista as pv  # For type hinting only
 
 
 class PointSetIO:
@@ -89,6 +90,21 @@ class PointSetIO:
         data = import_from_ply(input_file)
         return cls(data)
 
+    @classmethod
+    def from_pyvista(cls, polydata: "pv.PolyData") -> "PointSetIO":
+        """
+        Create a PointSetIO instance from a PyVista PolyData object.
+
+        Args:
+            polydata (pv.PolyData): The input PyVista PolyData object.
+
+        Returns:
+            PointSetIO: An instance of the class.
+        """
+        from omf_io.pointset.importers import import_from_pyvista
+        data = import_from_pyvista(polydata)
+        return cls(data)
+
     def to_csv(self, output_file: Path) -> Path:
         """
         Export the PointSet data to a CSV file.
@@ -112,6 +128,15 @@ class PointSetIO:
         """
         return export_to_omf(self.data, element_name, output_file)
 
+    def to_pandas(self) -> pd.DataFrame:
+        """
+        Convert the PointSet data to a pandas DataFrame.
+
+        Returns:
+            pandas.DataFrame: A DataFrame indexed by (x, y, z) coordinates with attributes.
+        """
+        return self.data
+
     def to_geopandas(self) -> "gpd.GeoDataFrame":
         """
         Convert the PointSetIO data to a GeoDataFrame.
@@ -132,3 +157,13 @@ class PointSetIO:
         """
         from omf_io.pointset.exporters import export_to_ply
         return export_to_ply(self.data, output_file, binary)
+
+    def to_pyvista(self) -> "pv.PolyData":
+        """
+        Convert the PointSetIO data to a PyVista PolyData object.
+
+        Returns:
+            pv.PolyData: A PyVista PolyData object representing the point cloud.
+        """
+        from omf_io.pointset.exporters import export_to_pyvista
+        return export_to_pyvista(self.data)

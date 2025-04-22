@@ -8,10 +8,11 @@
 
 name: Upload Python Package
 
-on:
-  release:
-    types: [published]
-  workflow_dispatch:
+# Disabled until package name is locked in - awaiting feedback.
+#on:
+#  release:
+#    types: [published]
+#  workflow_dispatch:
 
 permissions:
   contents: read

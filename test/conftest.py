@@ -6,7 +6,7 @@ from pathlib import Path
 @pytest.fixture
 def copper_deposit_path():
     # Path to the copper_deposit.omf file in the assets directory
-    return Path("../assets/copper_deposit.omf")
+    return Path(__file__).resolve().parents[1] / 'assets/copper_deposit.omf'
 
 
 @pytest.fixture

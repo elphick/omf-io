@@ -9,12 +9,15 @@ MAX_XY_VALUE = 1677721.5  # Maximum value for x and y (2^24 - 1) / 10
 MAX_Z_VALUE = 6553.5      # Maximum value for z (2^16 - 1) / 10
 MAX_DIM_VALUE = 102.3  # Maximum value for dx, dy, dz
 
+def is_integer(value):
+    return np.floor(value) == value
+
 def encode_coordinates(x: ArrayOrFloat, y: ArrayOrFloat, z: ArrayOrFloat) -> Union[np.ndarray, int]:
     """Encode the coordinates into a 64-bit integer or an array of 64-bit integers."""
     def check_value(value, max_value):
         if value > max_value:
             raise ValueError(f"Value {value} exceeds the maximum supported value of {max_value}")
-        if not (value * 10).is_integer():
+        if not is_integer(value * 10):
             raise ValueError(f"Value {value} has more than 1 decimal place")
         return value
 
@@ -52,7 +55,7 @@ def encode_dimensions(dx: ArrayOrFloat, dy: ArrayOrFloat, dz: ArrayOrFloat) -> U
     def check_value(value, max_value):
         if value > max_value:
             raise ValueError(f"Value {value} exceeds the maximum supported value of {max_value}")
-        if not (value * 10).is_integer():
+        if not is_integer(value * 10):
             raise ValueError(f"Value {value} has more than 1 decimal place")
         return value
 

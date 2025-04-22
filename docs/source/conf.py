@@ -1,24 +1,19 @@
 import os
 import sys
 
-import plotly
-from plotly.io._sg_scraper import plotly_sg_scraper
-
-image_scrapers = ('matplotlib', plotly_sg_scraper,)
-
-from plotly.io._sg_scraper import plotly_sg_scraper
-# import plotly.io as pio
-#
-# pio.renderers.default = 'sphinx_gallery_png'  # 'sphinx_gallery'
+image_scrapers = ('matplotlib')
 
 sys.path.insert(0, os.path.abspath('..'))
 sys.path.insert(0, os.path.abspath('../..'))
 
+import omf_io
+
 # -- Project information -----------------------------------------------------
 
-project = 'elphick-template'
-copyright = '2023, Greg Elphick'
+project = 'omf-io'
+copyright = '2025, Greg Elphick'
 author = 'Greg Elphick'
+version = omf_io.__version__
 
 # -- General configuration ---------------------------------------------------
 
@@ -29,10 +24,14 @@ extensions = ['sphinx.ext.autodoc', 'sphinx.ext.autosummary',  # to document the
               'sphinx.ext.viewcode',  # to add view code links
               'sphinx.ext.coverage',
               'sphinx.ext.napoleon',  # for parsing numpy/google docstrings
+              'sphinx.ext.todo',  # to add todo notes
+              'sphinx.ext.graphviz',  # to add graphviz diagrams
               'sphinx_gallery.gen_gallery',  # to generate a gallery of examples
               'sphinx_autodoc_typehints',
               'myst_parser',  # for parsing md files
               ]
+
+todo_include_todos = True
 
 autosummary_generate = True
 sphinx_gallery_conf = {

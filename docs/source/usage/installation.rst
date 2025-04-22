@@ -10,22 +10,16 @@ The package is pip installable.
 
 ..  code-block::
 
-    pip install mass-composition
+    pip install omf-io
 
-If you want the extras (for visualisation and networks of objects) you'll install like this with pip.
-
-.. code-block::
-
-    pip install mass-composition -e .[viz,network]
-
-Or, if poetry is more your flavour.
+or, if poetry is more your flavour.
 
 ..  code-block::
 
-    poetry add mass-composition
+    poetry add omf-io
 
-or with extras...
+or you may already be on the uv bus!
 
 ..  code-block::
 
-    poetry add "mass-composition[viz,network]"
+    uv add omf-io

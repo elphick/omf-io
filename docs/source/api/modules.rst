@@ -1,13 +1,21 @@
 API Reference
 =============
 
-.. automodule:: namespace.package
+.. automodule:: omf_io
    :members:
 
 .. autosummary::
    :toctree: _autosummary
    :recursive:
 
-    module
+    pointset
+    lineset
+    surface
+    gridsurface
+    blockmodel
+    imagearray
+    reader
+    writer
+    utils
 
 

@@ -1,7 +1,9 @@
 from pathlib import Path
 
+from ydata_profiling.controller.pandas_decorator import profile_report
+
 from omf_io.base import OMFIO, PathLike
-from omf_io.utils.decorators import requires_package
+from omf_io.utils.decorators import requires_dependency
 
 
 class OMFReader(OMFIO):
@@ -47,7 +49,7 @@ class OMFReader(OMFIO):
         """
         pass
 
-    @requires_package('ydata_profiling')
+    @requires_dependency('ydata_profiling', profile_report)
     def export_blockmodel_profile_report(self, blockmodel_name: str, output_file: PathLike):
         """Generate a profile report for a blockmodel.
 

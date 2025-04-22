@@ -19,7 +19,7 @@ def test_from_csv_invalid_file(tmp_path):
     pd.DataFrame({"a": [1], "b": [2]}).to_csv(invalid_csv, index=False)
 
     # Attempt to load the invalid CSV
-    with pytest.raises(ValueError, match="CSV file must contain three columns for x, y, z coordinates."):
+    with pytest.raises(ValueError, match="CSV file must have at least three columns for x, y, and z coordinates."):
         PointSetIO.from_csv(invalid_csv)
 
 

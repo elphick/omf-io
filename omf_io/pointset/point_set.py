@@ -1,12 +1,16 @@
-import ast
 from typing import Union
 
 import omf
 import pandas as pd
 from pathlib import Path
 
-from omf_io.utils.attributes import generate_omf_attributes
-from omf_io.utils.file import write_omf_element
+from omf_io.pointset.importers import import_from_csv, import_from_omf
+from omf_io.pointset.exporters import export_to_csv, export_to_omf
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    import geopandas as gpd  # For type hinting only
 
 
 class PointSetIO:
@@ -37,16 +41,7 @@ class PointSetIO:
             PointSetIO: An instance of the class.
         """
 
-        try:
-            data = pd.read_csv(file_path, index_col=[0, 1, 2])
-        except IndexError:
-            raise ValueError("CSV file must contain three columns for x, y, z coordinates.")
-        data.index.names = ['x', 'y', 'z']
-
-        # Convert stringified tuples back to tuples in the 'holeid_color' column
-        if 'holeid_color' in data.columns:
-            data['holeid_color'] = data['holeid_color'].apply(ast.literal_eval)
-
+        data = import_from_csv(file_path)
         return cls(data)
 
     @classmethod
@@ -61,46 +56,50 @@ class PointSetIO:
         Returns:
             PointSetIO: An instance of the class.
         """
-        if isinstance(omf_input, Path):
-            project = omf.load(str(omf_input))
-        elif isinstance(omf_input, omf.Project):
-            project = omf_input
-        else:
-            raise TypeError("omf_input must be a Path or an omf.Project object.")
+        data = import_from_omf(omf_input, pointset_name)
+        return cls(data)
 
-        pointset = next(
-            (element for element in project.elements if
-             element.name == pointset_name and isinstance(element, omf.PointSet)),
-            None
-        )
-        if not pointset:
-            raise ValueError(f"PointSet with name '{pointset_name}' not found in the OMF project.")
+    @classmethod
+    def from_geopandas(cls, gdf: "gpd.GeoDataFrame") -> "PointSetIO":
+        """
+        Create a PointSetIO instance from a GeoDataFrame.
 
-        # Create a DataFrame with vertices as the MultiIndex
-        vertices = pd.DataFrame(pointset.vertices.array, columns=['x', 'y', 'z'])
-        vertices.set_index(['x', 'y', 'z'], inplace=True)
+        Args:
+            gdf (geopandas.GeoDataFrame): The input GeoDataFrame with Point geometries.
 
-        # Add attributes as columns
-        for attr in pointset.attributes:
-            if isinstance(attr, omf.attribute.CategoryAttribute):
-                vertices[attr.name] = attr.categories.values
-                vertices[f"{attr.name}_color"] = attr.categories.colors
-            else:
-                raise NotImplementedError(f"Attribute '{attr}' not implemented.")
+        Returns:
+            PointSetIO: An instance of the class.
+        """
+        from omf_io.pointset.importers import import_from_geopandas
+        data = import_from_geopandas(gdf)
+        return cls(data)
 
+    @classmethod
+    def from_ply(cls, input_file: Path) -> "PointSetIO":
+        """
+        Create a PointSetIO instance from a PLY file.
 
-        return cls(vertices)
+        Args:
+            input_file (Path): The input PLY file path.
 
-    def to_csv(self, output_file: Path):
+        Returns:
+            PointSetIO: An instance of the class.
+        """
+        from omf_io.pointset.importers import import_from_ply
+        data = import_from_ply(input_file)
+        return cls(data)
+
+    def to_csv(self, output_file: Path) -> Path:
         """
         Export the PointSet data to a CSV file.
 
         Args:
             output_file (Path): The output CSV file path.
         """
-        self.data.to_csv(output_file, index=True)
+        export_to_csv(self.data, output_file)
+        return output_file
 
-    def to_omf(self, element_name: str = 'point_set', output_file: Path = None) -> omf.PointSet:
+    def to_omf(self, element_name: str = 'point_set', output_file: Path = None) -> Union[Path, omf.PointSet]:
         """
         Convert the PointSet data to an OMF PointSet, including attributes.
 
@@ -111,17 +110,25 @@ class PointSetIO:
         Returns:
             omf.PointSet: The OMF PointSet object (if output_file is not provided).
         """
-        point_set = omf.PointSet(
-            name=element_name,
-            vertices=self.data.index.to_frame(index=False).values
-        )
+        return export_to_omf(self.data, element_name, output_file)
 
-        # Add attributes
-        point_set.attributes = generate_omf_attributes(self.data)
+    def to_geopandas(self) -> "gpd.GeoDataFrame":
+        """
+        Convert the PointSetIO data to a GeoDataFrame.
 
-        if output_file:
-            # Validate and write to file
-            point_set.validate()
-            write_omf_element(point_set, output_file, overwrite=True)
+        Returns:
+            geopandas.GeoDataFrame: A GeoDataFrame with Point geometries.
+        """
+        from omf_io.pointset.exporters import export_to_geopandas
+        return export_to_geopandas(self.data)
 
-        return point_set
+    def to_ply(self, output_file: Path, binary: bool = False) -> Path:
+        """
+        Export the PointSet data to a PLY file.
+
+        Args:
+            output_file (Path): The output PLY file path.
+            binary (bool): Whether to export in binary format. Defaults to False (ASCII).
+        """
+        from omf_io.pointset.exporters import export_to_ply
+        return export_to_ply(self.data, output_file, binary)

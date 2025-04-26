@@ -1,0 +1,6 @@
+omf\_io.surface.importers.import\_surface\_from\_ply\_ascii
+===========================================================
+
+.. currentmodule:: omf_io.surface.importers
+
+.. autofunction:: import_surface_from_ply_ascii

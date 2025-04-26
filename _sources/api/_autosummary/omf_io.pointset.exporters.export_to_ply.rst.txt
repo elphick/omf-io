@@ -1,0 +1,6 @@
+omf\_io.pointset.exporters.export\_to\_ply
+==========================================
+
+.. currentmodule:: omf_io.pointset.exporters
+
+.. autofunction:: export_to_ply

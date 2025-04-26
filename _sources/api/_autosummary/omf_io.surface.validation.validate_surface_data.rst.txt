@@ -1,0 +1,6 @@
+omf\_io.surface.validation.validate\_surface\_data
+==================================================
+
+.. currentmodule:: omf_io.surface.validation
+
+.. autofunction:: validate_surface_data

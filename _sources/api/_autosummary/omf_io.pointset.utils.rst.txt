@@ -1,0 +1,32 @@
+omf\_io.pointset.utils
+======================
+
+.. automodule:: omf_io.pointset.utils
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+      :toctree:
+      :nosignatures:
+   
+      calculate_struct_size
+      construct_struct_format
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+

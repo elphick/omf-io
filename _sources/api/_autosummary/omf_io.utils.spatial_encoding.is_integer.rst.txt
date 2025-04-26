@@ -1,0 +1,6 @@
+omf\_io.utils.spatial\_encoding.is\_integer
+===========================================
+
+.. currentmodule:: omf_io.utils.spatial_encoding
+
+.. autofunction:: is_integer

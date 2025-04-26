@@ -1,0 +1,6 @@
+omf\_io.gridsurface.importers.load\_raster\_with\_rioxarray
+===========================================================
+
+.. currentmodule:: omf_io.gridsurface.importers
+
+.. autofunction:: load_raster_with_rioxarray

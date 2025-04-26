@@ -1,0 +1,38 @@
+omf\_io.writer.writer.OMFWriter
+===============================
+
+.. currentmodule:: omf_io.writer.writer
+
+.. autoclass:: OMFWriter
+   :members:
+   :special-members: __add__, __mul__
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~OMFWriter.__init__
+      ~OMFWriter.export_blockmodel_profile_report
+      ~OMFWriter.export_blockmodel_to_file
+      ~OMFWriter.export_image_to_file
+      ~OMFWriter.export_surface_to_raster_file
+      ~OMFWriter.write_blockmodel_from_dataframe
+      ~OMFWriter.write_blockmodel_from_file
+      ~OMFWriter.write_raster_from_array
+      ~OMFWriter.write_raster_from_file
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~OMFWriter.element_types
+   
+   

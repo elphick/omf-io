@@ -1,0 +1,30 @@
+omf\_io.writer.writer
+=====================
+
+.. automodule:: omf_io.writer.writer
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :toctree:
+   
+      OMFWriter
+   
+   
+
+   
+   
+   
+
+
+

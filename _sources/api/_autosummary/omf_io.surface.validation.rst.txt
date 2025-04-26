@@ -1,0 +1,31 @@
+omf\_io.surface.validation
+==========================
+
+.. automodule:: omf_io.surface.validation
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+      :toctree:
+      :nosignatures:
+   
+      validate_surface_data
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+

@@ -1,0 +1,35 @@
+omf\_io.utils.spatial\_encoding
+===============================
+
+.. automodule:: omf_io.utils.spatial_encoding
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+      :toctree:
+      :nosignatures:
+   
+      decode_coordinates
+      decode_dimensions
+      encode_coordinates
+      encode_dimensions
+      is_integer
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+

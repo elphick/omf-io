@@ -1,0 +1,6 @@
+omf\_io.gridsurface.exporters.export\_grid\_surface\_to\_raster
+===============================================================
+
+.. currentmodule:: omf_io.gridsurface.exporters
+
+.. autofunction:: export_grid_surface_to_raster

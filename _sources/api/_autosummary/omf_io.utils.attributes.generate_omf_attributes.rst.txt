@@ -1,0 +1,6 @@
+omf\_io.utils.attributes.generate\_omf\_attributes
+==================================================
+
+.. currentmodule:: omf_io.utils.attributes
+
+.. autofunction:: generate_omf_attributes

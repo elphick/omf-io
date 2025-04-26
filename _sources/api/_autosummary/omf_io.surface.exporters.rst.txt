@@ -1,0 +1,33 @@
+omf\_io.surface.exporters
+=========================
+
+.. automodule:: omf_io.surface.exporters
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+      :toctree:
+      :nosignatures:
+   
+      export_surface_to_obj
+      export_surface_to_ply_ascii
+      export_surface_to_ply_binary
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+

@@ -1,0 +1,6 @@
+omf\_io.utils.audit.get\_username
+=================================
+
+.. currentmodule:: omf_io.utils.audit
+
+.. autofunction:: get_username

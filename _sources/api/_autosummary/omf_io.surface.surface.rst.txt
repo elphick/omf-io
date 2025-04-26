@@ -1,0 +1,30 @@
+omf\_io.surface.surface
+=======================
+
+.. automodule:: omf_io.surface.surface
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :toctree:
+   
+      SurfaceIO
+   
+   
+
+   
+   
+   
+
+
+

@@ -1,0 +1,6 @@
+omf\_io.blockmodel.exporters.export\_block\_model\_to\_csv
+==========================================================
+
+.. currentmodule:: omf_io.blockmodel.exporters
+
+.. autofunction:: export_block_model_to_csv

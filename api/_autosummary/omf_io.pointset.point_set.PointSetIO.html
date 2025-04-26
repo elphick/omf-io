@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>omf_io.pointset.point_set.PointSetIO &mdash; omf-io  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=fd3f3429" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css?v=61a4c737" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=1a8b2067" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="omf_io.pointset.utils" href="omf_io.pointset.utils.html" />
+    <link rel="prev" title="omf_io.pointset.point_set" href="omf_io.pointset.point_set.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            omf-io
+          </a>
+              <div class="version">
+                0.1.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../usage/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/quickstart.html">Quick Start Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user_guide.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../auto_examples/index.html">Example Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary/glossary.html">Glossary</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../modules.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="omf_io.pointset.html">omf_io.pointset</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="omf_io.pointset.exporters.html">omf_io.pointset.exporters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="omf_io.pointset.importers.html">omf_io.pointset.importers</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="omf_io.pointset.point_set.html">omf_io.pointset.point_set</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">omf_io.pointset.point_set.PointSetIO</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="omf_io.pointset.utils.html">omf_io.pointset.utils</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="omf_io.lineset.html">omf_io.lineset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="omf_io.surface.html">omf_io.surface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="omf_io.gridsurface.html">omf_io.gridsurface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="omf_io.blockmodel.html">omf_io.blockmodel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="omf_io.imagearray.html">omf_io.imagearray</a></li>
+<li class="toctree-l2"><a class="reference internal" href="omf_io.reader.html">omf_io.reader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="omf_io.writer.html">omf_io.writer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="omf_io.utils.html">omf_io.utils</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../todo.html">To Do</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license/license.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">omf-io</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../modules.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="omf_io.pointset.html">omf_io.pointset</a></li>
+          <li class="breadcrumb-item"><a href="omf_io.pointset.point_set.html">omf_io.pointset.point_set</a></li>
+      <li class="breadcrumb-item active">omf_io.pointset.point_set.PointSetIO</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/api/_autosummary/omf_io.pointset.point_set.PointSetIO.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="omf-io-pointset-point-set-pointsetio">
+<h1>omf_io.pointset.point_set.PointSetIO<a class="headerlink" href="#omf-io-pointset-point-set-pointsetio" title="Link to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="omf_io.pointset.point_set.PointSetIO">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">omf_io.pointset.point_set.</span></span><span class="sig-name descname"><span class="pre">PointSetIO</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/omf_io/pointset/point_set.html#PointSetIO"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#omf_io.pointset.point_set.PointSetIO" title="Link to this definition"></a></dt>
+<dd><p>Handles the creation and consumption of PointSet objects with attributes.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="omf_io.pointset.point_set.PointSetIO.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/omf_io/pointset/point_set.html#PointSetIO.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#omf_io.pointset.point_set.PointSetIO.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initialize the PointSetIO instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>pandas.DataFrame</em>) – The point set data with a MultiIndex (x, y, z) and attribute columns.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="rubric">Methods</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#omf_io.pointset.point_set.PointSetIO.__init__" title="omf_io.pointset.point_set.PointSetIO.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(data)</p></td>
+<td><p>Initialize the PointSetIO instance.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#omf_io.pointset.point_set.PointSetIO.from_csv" title="omf_io.pointset.point_set.PointSetIO.from_csv"><code class="xref py py-obj docutils literal notranslate"><span class="pre">from_csv</span></code></a>(file_path)</p></td>
+<td><p>Load a PointSetIO instance from a CSV file.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#omf_io.pointset.point_set.PointSetIO.from_geopandas" title="omf_io.pointset.point_set.PointSetIO.from_geopandas"><code class="xref py py-obj docutils literal notranslate"><span class="pre">from_geopandas</span></code></a>(gdf)</p></td>
+<td><p>Create a PointSetIO instance from a GeoDataFrame.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#omf_io.pointset.point_set.PointSetIO.from_omf" title="omf_io.pointset.point_set.PointSetIO.from_omf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">from_omf</span></code></a>(omf_input, pointset_name)</p></td>
+<td><p>Create a PointSetIO instance from an OMF file or project object.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#omf_io.pointset.point_set.PointSetIO.from_ply" title="omf_io.pointset.point_set.PointSetIO.from_ply"><code class="xref py py-obj docutils literal notranslate"><span class="pre">from_ply</span></code></a>(input_file)</p></td>
+<td><p>Create a PointSetIO instance from a PLY file.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#omf_io.pointset.point_set.PointSetIO.from_pyvista" title="omf_io.pointset.point_set.PointSetIO.from_pyvista"><code class="xref py py-obj docutils literal notranslate"><span class="pre">from_pyvista</span></code></a>(polydata)</p></td>
+<td><p>Create a PointSetIO instance from a PyVista PolyData object.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#omf_io.pointset.point_set.PointSetIO.to_csv" title="omf_io.pointset.point_set.PointSetIO.to_csv"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_csv</span></code></a>(output_file)</p></td>
+<td><p>Export the PointSet data to a CSV file.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#omf_io.pointset.point_set.PointSetIO.to_geopandas" title="omf_io.pointset.point_set.PointSetIO.to_geopandas"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_geopandas</span></code></a>()</p></td>
+<td><p>Convert the PointSetIO data to a GeoDataFrame.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#omf_io.pointset.point_set.PointSetIO.to_omf" title="omf_io.pointset.point_set.PointSetIO.to_omf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_omf</span></code></a>([element_name, output_file])</p></td>
+<td><p>Convert the PointSet data to an OMF PointSet, including attributes.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#omf_io.pointset.point_set.PointSetIO.to_pandas" title="omf_io.pointset.point_set.PointSetIO.to_pandas"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_pandas</span></code></a>()</p></td>
+<td><p>Convert the PointSet data to a pandas DataFrame.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#omf_io.pointset.point_set.PointSetIO.to_ply" title="omf_io.pointset.point_set.PointSetIO.to_ply"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_ply</span></code></a>(output_file[, binary])</p></td>
+<td><p>Export the PointSet data to a PLY file.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#omf_io.pointset.point_set.PointSetIO.to_pyvista" title="omf_io.pointset.point_set.PointSetIO.to_pyvista"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_pyvista</span></code></a>()</p></td>
+<td><p>Convert the PointSetIO data to a PyVista PolyData object.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt class="sig sig-object py" id="omf_io.pointset.point_set.PointSetIO.from_csv">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_csv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/omf_io/pointset/point_set.html#PointSetIO.from_csv"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#omf_io.pointset.point_set.PointSetIO.from_csv" title="Link to this definition"></a></dt>
+<dd><p>Load a PointSetIO instance from a CSV file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>file_path</strong> (<em>Path</em>) – The path to the CSV file.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>An instance of the class.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#omf_io.pointset.point_set.PointSetIO" title="omf_io.pointset.point_set.PointSetIO">PointSetIO</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="omf_io.pointset.point_set.PointSetIO.from_geopandas">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_geopandas</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gdf</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/omf_io/pointset/point_set.html#PointSetIO.from_geopandas"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#omf_io.pointset.point_set.PointSetIO.from_geopandas" title="Link to this definition"></a></dt>
+<dd><p>Create a PointSetIO instance from a GeoDataFrame.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>gdf</strong> (<em>geopandas.GeoDataFrame</em>) – The input GeoDataFrame with Point geometries.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>An instance of the class.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#omf_io.pointset.point_set.PointSetIO" title="omf_io.pointset.point_set.PointSetIO">PointSetIO</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="omf_io.pointset.point_set.PointSetIO.from_omf">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_omf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">omf_input</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pointset_name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/omf_io/pointset/point_set.html#PointSetIO.from_omf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#omf_io.pointset.point_set.PointSetIO.from_omf" title="Link to this definition"></a></dt>
+<dd><p>Create a PointSetIO instance from an OMF file or project object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>omf_input</strong> (<em>Union</em><em>[</em><em>Path</em><em>, </em><em>omf.Project</em><em>]</em>) – The input OMF file path or project object.</p></li>
+<li><p><strong>pointset_name</strong> (<em>str</em>) – The name of the PointSet element to extract.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>An instance of the class.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#omf_io.pointset.point_set.PointSetIO" title="omf_io.pointset.point_set.PointSetIO">PointSetIO</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="omf_io.pointset.point_set.PointSetIO.from_ply">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_ply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_file</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/omf_io/pointset/point_set.html#PointSetIO.from_ply"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#omf_io.pointset.point_set.PointSetIO.from_ply" title="Link to this definition"></a></dt>
+<dd><p>Create a PointSetIO instance from a PLY file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>input_file</strong> (<em>Path</em>) – The input PLY file path.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>An instance of the class.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#omf_io.pointset.point_set.PointSetIO" title="omf_io.pointset.point_set.PointSetIO">PointSetIO</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="omf_io.pointset.point_set.PointSetIO.from_pyvista">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_pyvista</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">polydata</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/omf_io/pointset/point_set.html#PointSetIO.from_pyvista"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#omf_io.pointset.point_set.PointSetIO.from_pyvista" title="Link to this definition"></a></dt>
+<dd><p>Create a PointSetIO instance from a PyVista PolyData object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>polydata</strong> (<em>pv.PolyData</em>) – The input PyVista PolyData object.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>An instance of the class.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#omf_io.pointset.point_set.PointSetIO" title="omf_io.pointset.point_set.PointSetIO">PointSetIO</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="omf_io.pointset.point_set.PointSetIO.to_csv">
+<span class="sig-name descname"><span class="pre">to_csv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">output_file</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/omf_io/pointset/point_set.html#PointSetIO.to_csv"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#omf_io.pointset.point_set.PointSetIO.to_csv" title="Link to this definition"></a></dt>
+<dd><p>Export the PointSet data to a CSV file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>output_file</strong> (<em>Path</em>) – The output CSV file path.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="omf_io.pointset.point_set.PointSetIO.to_geopandas">
+<span class="sig-name descname"><span class="pre">to_geopandas</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/omf_io/pointset/point_set.html#PointSetIO.to_geopandas"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#omf_io.pointset.point_set.PointSetIO.to_geopandas" title="Link to this definition"></a></dt>
+<dd><p>Convert the PointSetIO data to a GeoDataFrame.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A GeoDataFrame with Point geometries.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>geopandas.GeoDataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="omf_io.pointset.point_set.PointSetIO.to_omf">
+<span class="sig-name descname"><span class="pre">to_omf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'point_set'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/omf_io/pointset/point_set.html#PointSetIO.to_omf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#omf_io.pointset.point_set.PointSetIO.to_omf" title="Link to this definition"></a></dt>
+<dd><p>Convert the PointSet data to an OMF PointSet, including attributes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>element_name</strong> (<em>str</em>) – The name of the PointSet element.</p></li>
+<li><p><strong>output_file</strong> (<em>Path</em><em>, </em><em>optional</em>) – The file path to save the OMF PointSet.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The OMF PointSet object (if output_file is not provided).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>omf.PointSet</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="omf_io.pointset.point_set.PointSetIO.to_pandas">
+<span class="sig-name descname"><span class="pre">to_pandas</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/omf_io/pointset/point_set.html#PointSetIO.to_pandas"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#omf_io.pointset.point_set.PointSetIO.to_pandas" title="Link to this definition"></a></dt>
+<dd><p>Convert the PointSet data to a pandas DataFrame.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A DataFrame indexed by (x, y, z) coordinates with attributes.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>pandas.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="omf_io.pointset.point_set.PointSetIO.to_ply">
+<span class="sig-name descname"><span class="pre">to_ply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">output_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">binary</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/omf_io/pointset/point_set.html#PointSetIO.to_ply"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#omf_io.pointset.point_set.PointSetIO.to_ply" title="Link to this definition"></a></dt>
+<dd><p>Export the PointSet data to a PLY file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>output_file</strong> (<em>Path</em>) – The output PLY file path.</p></li>
+<li><p><strong>binary</strong> (<em>bool</em>) – Whether to export in binary format. Defaults to False (ASCII).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="omf_io.pointset.point_set.PointSetIO.to_pyvista">
+<span class="sig-name descname"><span class="pre">to_pyvista</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/omf_io/pointset/point_set.html#PointSetIO.to_pyvista"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#omf_io.pointset.point_set.PointSetIO.to_pyvista" title="Link to this definition"></a></dt>
+<dd><p>Convert the PointSetIO data to a PyVista PolyData object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A PyVista PolyData object representing the point cloud.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>pv.PolyData</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="omf_io.pointset.point_set.html" class="btn btn-neutral float-left" title="omf_io.pointset.point_set" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="omf_io.pointset.utils.html" class="btn btn-neutral float-right" title="omf_io.pointset.utils" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Greg Elphick.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

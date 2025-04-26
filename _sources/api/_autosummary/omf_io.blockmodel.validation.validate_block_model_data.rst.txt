@@ -1,0 +1,6 @@
+omf\_io.blockmodel.validation.validate\_block\_model\_data
+==========================================================
+
+.. currentmodule:: omf_io.blockmodel.validation
+
+.. autofunction:: validate_block_model_data

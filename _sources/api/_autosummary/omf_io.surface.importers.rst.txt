@@ -1,0 +1,33 @@
+omf\_io.surface.importers
+=========================
+
+.. automodule:: omf_io.surface.importers
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+      :toctree:
+      :nosignatures:
+   
+      import_surface_from_obj
+      import_surface_from_ply_ascii
+      import_surface_from_ply_binary
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+

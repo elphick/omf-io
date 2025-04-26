@@ -1,0 +1,30 @@
+omf\_io.surface.surface.SurfaceIO
+=================================
+
+.. currentmodule:: omf_io.surface.surface
+
+.. autoclass:: SurfaceIO
+   :members:
+   :special-members: __add__, __mul__
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~SurfaceIO.__init__
+      ~SurfaceIO.from_obj
+      ~SurfaceIO.from_ply_ascii
+      ~SurfaceIO.from_ply_binary
+      ~SurfaceIO.to_obj
+      ~SurfaceIO.to_ply_ascii
+      ~SurfaceIO.to_ply_binary
+   
+   
+
+   
+   
+   

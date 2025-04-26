@@ -1,0 +1,6 @@
+omf\_io.utils.pandas\_utils.to\_numpy\_integer\_dtype
+=====================================================
+
+.. currentmodule:: omf_io.utils.pandas_utils
+
+.. autofunction:: to_numpy_integer_dtype

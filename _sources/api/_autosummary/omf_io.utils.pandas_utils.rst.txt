@@ -1,0 +1,36 @@
+omf\_io.utils.pandas\_utils
+===========================
+
+.. automodule:: omf_io.utils.pandas_utils
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+      :toctree:
+      :nosignatures:
+   
+      aggregate
+      create_test_blockmodel
+      is_nullable_integer_dtype
+      parse_vars_from_expr
+      to_nullable_integer_dtype
+      to_numpy_integer_dtype
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+

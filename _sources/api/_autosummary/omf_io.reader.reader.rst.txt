@@ -1,0 +1,30 @@
+omf\_io.reader.reader
+=====================
+
+.. automodule:: omf_io.reader.reader
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :toctree:
+   
+      OMFReader
+   
+   
+
+   
+   
+   
+
+
+

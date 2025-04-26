@@ -1,0 +1,31 @@
+omf\_io.utils.decorators
+========================
+
+.. automodule:: omf_io.utils.decorators
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+      :toctree:
+      :nosignatures:
+   
+      requires_dependency
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+

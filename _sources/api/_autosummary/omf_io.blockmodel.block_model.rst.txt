@@ -1,0 +1,30 @@
+omf\_io.blockmodel.block\_model
+===============================
+
+.. automodule:: omf_io.blockmodel.block_model
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :toctree:
+   
+      BlockModelIO
+   
+   
+
+   
+   
+   
+
+
+

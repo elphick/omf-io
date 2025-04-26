@@ -1,0 +1,6 @@
+omf\_io.utils.spatial\_encoding.encode\_dimensions
+==================================================
+
+.. currentmodule:: omf_io.utils.spatial_encoding
+
+.. autofunction:: encode_dimensions

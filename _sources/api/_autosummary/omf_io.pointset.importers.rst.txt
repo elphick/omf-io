@@ -1,0 +1,33 @@
+omf\_io.pointset.importers
+==========================
+
+.. automodule:: omf_io.pointset.importers
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+      :toctree:
+      :nosignatures:
+   
+      import_from_csv
+      import_from_omf
+      import_from_ply
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+

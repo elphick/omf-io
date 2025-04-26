@@ -1,0 +1,6 @@
+omf\_io.blockmodel.importers.import\_block\_model\_from\_csv
+============================================================
+
+.. currentmodule:: omf_io.blockmodel.importers
+
+.. autofunction:: import_block_model_from_csv

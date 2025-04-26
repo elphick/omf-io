@@ -1,0 +1,30 @@
+omf\_io.pointset.point\_set
+===========================
+
+.. automodule:: omf_io.pointset.point_set
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :toctree:
+   
+      PointSetIO
+   
+   
+
+   
+   
+   
+
+
+

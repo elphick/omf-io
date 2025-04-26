@@ -1,0 +1,31 @@
+omf\_io.blockmodel.importers
+============================
+
+.. automodule:: omf_io.blockmodel.importers
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+      :toctree:
+      :nosignatures:
+   
+      import_block_model_from_csv
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+

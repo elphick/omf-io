@@ -1,0 +1,6 @@
+omf\_io.pointset.utils.construct\_struct\_format
+================================================
+
+.. currentmodule:: omf_io.pointset.utils
+
+.. autofunction:: construct_struct_format

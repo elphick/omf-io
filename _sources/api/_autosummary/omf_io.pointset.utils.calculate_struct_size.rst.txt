@@ -1,0 +1,6 @@
+omf\_io.pointset.utils.calculate\_struct\_size
+==============================================
+
+.. currentmodule:: omf_io.pointset.utils
+
+.. autofunction:: calculate_struct_size

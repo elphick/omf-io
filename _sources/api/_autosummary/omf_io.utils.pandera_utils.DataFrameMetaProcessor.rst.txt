@@ -1,0 +1,37 @@
+omf\_io.utils.pandera\_utils.DataFrameMetaProcessor
+===================================================
+
+.. currentmodule:: omf_io.utils.pandera_utils
+
+.. autoclass:: DataFrameMetaProcessor
+   :members:
+   :special-members: __add__, __mul__
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~DataFrameMetaProcessor.__init__
+      ~DataFrameMetaProcessor.calculate_from_meta_calculation
+      ~DataFrameMetaProcessor.preprocess
+      ~DataFrameMetaProcessor.rename_from_meta_alias
+      ~DataFrameMetaProcessor.round_to_decimals
+      ~DataFrameMetaProcessor.validate
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~DataFrameMetaProcessor.alias_map
+      ~DataFrameMetaProcessor.calculation_map
+      ~DataFrameMetaProcessor.decimals_map
+   
+   

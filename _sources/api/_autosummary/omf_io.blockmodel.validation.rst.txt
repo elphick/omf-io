@@ -1,0 +1,31 @@
+omf\_io.blockmodel.validation
+=============================
+
+.. automodule:: omf_io.blockmodel.validation
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+      :toctree:
+      :nosignatures:
+   
+      validate_block_model_data
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+

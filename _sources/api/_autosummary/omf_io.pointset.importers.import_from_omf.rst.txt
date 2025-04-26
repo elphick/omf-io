@@ -1,0 +1,6 @@
+omf\_io.pointset.importers.import\_from\_omf
+============================================
+
+.. currentmodule:: omf_io.pointset.importers
+
+.. autofunction:: import_from_omf

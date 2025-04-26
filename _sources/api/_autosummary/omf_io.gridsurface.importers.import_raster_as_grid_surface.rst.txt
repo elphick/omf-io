@@ -1,0 +1,6 @@
+omf\_io.gridsurface.importers.import\_raster\_as\_grid\_surface
+===============================================================
+
+.. currentmodule:: omf_io.gridsurface.importers
+
+.. autofunction:: import_raster_as_grid_surface

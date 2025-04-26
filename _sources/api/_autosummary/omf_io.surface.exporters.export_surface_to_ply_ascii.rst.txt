@@ -1,0 +1,6 @@
+omf\_io.surface.exporters.export\_surface\_to\_ply\_ascii
+=========================================================
+
+.. currentmodule:: omf_io.surface.exporters
+
+.. autofunction:: export_surface_to_ply_ascii

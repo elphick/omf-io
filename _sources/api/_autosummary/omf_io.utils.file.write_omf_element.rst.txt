@@ -1,0 +1,6 @@
+omf\_io.utils.file.write\_omf\_element
+======================================
+
+.. currentmodule:: omf_io.utils.file
+
+.. autofunction:: write_omf_element

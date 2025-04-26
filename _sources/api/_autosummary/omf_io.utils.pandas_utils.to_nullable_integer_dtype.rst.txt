@@ -1,0 +1,6 @@
+omf\_io.utils.pandas\_utils.to\_nullable\_integer\_dtype
+========================================================
+
+.. currentmodule:: omf_io.utils.pandas_utils
+
+.. autofunction:: to_nullable_integer_dtype

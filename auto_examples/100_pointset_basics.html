@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PointSetIO Basics &mdash; omf-io  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=61a4c737" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=1a8b2067" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Glossary" href="../glossary/glossary.html" />
+    <link rel="prev" title="Example Gallery" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            omf-io
+          </a>
+              <div class="version">
+                0.1.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../usage/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/quickstart.html">Quick Start Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide.html">User Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Example Gallery</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">PointSetIO Basics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#load-a-pointset">Load a PointSet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#demonstrate-conversions">Demonstrate conversions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#csv-file">CSV file</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pandas-dataframe-object">Pandas DataFrame object</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#geopandas-geodataframe-object">GeoPandas geodataframe object</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ply-file">PLY file</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pyvista-polydata-object">PyVista Polydata object</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#omf-file">OMF file</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary/glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/modules.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../todo.html">To Do</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license/license.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">omf-io</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Example Gallery</a></li>
+      <li class="breadcrumb-item active">PointSetIO Basics</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/auto_examples/100_pointset_basics.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">Note</p>
+<p><a class="reference internal" href="#sphx-glr-download-auto-examples-100-pointset-basics-py"><span class="std std-ref">Go to the end</span></a>
+to download the full example code.</p>
+</div>
+<section class="sphx-glr-example-title" id="pointsetio-basics">
+<span id="sphx-glr-auto-examples-100-pointset-basics-py"></span><h1>PointSetIO Basics<a class="headerlink" href="#pointsetio-basics" title="Link to this heading"></a></h1>
+<p>This example demonstrates the basic usage of the PointSetIO class.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">tempfile</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">geopandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gpd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pyvista</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pv</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">omf_io.pointset</span><span class="w"> </span><span class="kn">import</span> <span class="n">PointSetIO</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">omf_io.reader</span><span class="w"> </span><span class="kn">import</span> <span class="n">OMFReader</span>
+</pre></div>
+</div>
+<section id="load-a-pointset">
+<h2>Load a PointSet<a class="headerlink" href="#load-a-pointset" title="Link to this heading"></a></h2>
+<p>Load a point set from a OMF file</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">pointset_io</span><span class="p">:</span> <span class="n">PointSetIO</span> <span class="o">=</span> <span class="n">PointSetIO</span><span class="o">.</span><span class="n">from_omf</span><span class="p">(</span><span class="n">omf_input</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="s1">&#39;../assets/copper_deposit.omf&#39;</span><span class="p">),</span>
+                                              <span class="n">pointset_name</span><span class="o">=</span><span class="s1">&#39;collar&#39;</span><span class="p">)</span>
+
+<span class="n">pointset_io</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="output_subarea output_html rendered_html output_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th></th>
+      <th>holeid</th>
+      <th>holeid_color</th>
+    </tr>
+    <tr>
+      <th>x</th>
+      <th>y</th>
+      <th>z</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>445198.219</th>
+      <th>494110.594</th>
+      <th>3057.757537</th>
+      <td>WP001</td>
+      <td>(61, 255, 61)</td>
+    </tr>
+    <tr>
+      <th>445196.625</th>
+      <th>494109.656</th>
+      <th>3054.265408</th>
+      <td>WP002</td>
+      <td>(255, 255, 96)</td>
+    </tr>
+    <tr>
+      <th>445260.563</th>
+      <th>493860.719</th>
+      <th>3009.038328</th>
+      <td>WP003</td>
+      <td>(255, 25, 25)</td>
+    </tr>
+    <tr>
+      <th>445203.344</th>
+      <th>493720.656</th>
+      <th>3033.777664</th>
+      <td>WP004</td>
+      <td>(255, 132, 193)</td>
+    </tr>
+    <tr>
+      <th>445291.563</th>
+      <th>493566.219</th>
+      <th>2957.434730</th>
+      <td>WP005</td>
+      <td>(158, 255, 61)</td>
+    </tr>
+    <tr>
+      <th>445294.031</th>
+      <th>493886.813</th>
+      <th>2970.848677</th>
+      <td>WP006</td>
+      <td>(255, 175, 96)</td>
+    </tr>
+    <tr>
+      <th>445296.594</th>
+      <th>493890.250</th>
+      <th>2974.079767</th>
+      <td>WP007</td>
+      <td>(255, 168, 168)</td>
+    </tr>
+    <tr>
+      <th>445460.813</th>
+      <th>493321.156</th>
+      <th>2979.143623</th>
+      <td>WP008</td>
+      <td>(96, 96, 255)</td>
+    </tr>
+    <tr>
+      <th>445452.313</th>
+      <th>493402.188</th>
+      <th>2980.300987</th>
+      <td>WP009</td>
+      <td>(61, 61, 255)</td>
+    </tr>
+    <tr>
+      <th>445427.219</th>
+      <th>493523.688</th>
+      <th>2978.657715</th>
+      <td>WP010</td>
+      <td>(255, 193, 132)</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+<br />
+<br /></section>
+<section id="demonstrate-conversions">
+<h2>Demonstrate conversions<a class="headerlink" href="#demonstrate-conversions" title="Link to this heading"></a></h2>
+<p>Exercise the PointSetIO class with various conversions</p>
+<section id="csv-file">
+<h3>CSV file<a class="headerlink" href="#csv-file" title="Link to this heading"></a></h3>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">point_data</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="o">=</span> <span class="n">pointset_io</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">out_filepath</span><span class="p">:</span> <span class="n">Path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">tempfile</span><span class="o">.</span><span class="n">gettempdir</span><span class="p">())</span> <span class="o">/</span> <span class="s1">&#39;pointset_data.csv&#39;</span>
+<span class="n">csv_filepath</span><span class="p">:</span> <span class="n">Path</span> <span class="o">=</span> <span class="n">PointSetIO</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">point_data</span><span class="p">)</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">out_filepath</span><span class="p">)</span>
+
+<span class="c1"># read and print the csv</span>
+<span class="n">csv_point_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">csv_filepath</span><span class="p">)</span>
+<span class="n">csv_point_data</span>
+</pre></div>
+</div>
+<div class="output_subarea output_html rendered_html output_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>x</th>
+      <th>y</th>
+      <th>z</th>
+      <th>holeid</th>
+      <th>holeid_color</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>445198.219</td>
+      <td>494110.594</td>
+      <td>3057.757537</td>
+      <td>WP001</td>
+      <td>(61, 255, 61)</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>445196.625</td>
+      <td>494109.656</td>
+      <td>3054.265408</td>
+      <td>WP002</td>
+      <td>(255, 255, 96)</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>445260.563</td>
+      <td>493860.719</td>
+      <td>3009.038328</td>
+      <td>WP003</td>
+      <td>(255, 25, 25)</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>445203.344</td>
+      <td>493720.656</td>
+      <td>3033.777664</td>
+      <td>WP004</td>
+      <td>(255, 132, 193)</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>445291.563</td>
+      <td>493566.219</td>
+      <td>2957.434730</td>
+      <td>WP005</td>
+      <td>(158, 255, 61)</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>445294.031</td>
+      <td>493886.813</td>
+      <td>2970.848677</td>
+      <td>WP006</td>
+      <td>(255, 175, 96)</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>445296.594</td>
+      <td>493890.250</td>
+      <td>2974.079767</td>
+      <td>WP007</td>
+      <td>(255, 168, 168)</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>445460.813</td>
+      <td>493321.156</td>
+      <td>2979.143623</td>
+      <td>WP008</td>
+      <td>(96, 96, 255)</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>445452.313</td>
+      <td>493402.188</td>
+      <td>2980.300987</td>
+      <td>WP009</td>
+      <td>(61, 61, 255)</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>445427.219</td>
+      <td>493523.688</td>
+      <td>2978.657715</td>
+      <td>WP010</td>
+      <td>(255, 193, 132)</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+<br />
+<br /></section>
+<section id="pandas-dataframe-object">
+<h3>Pandas DataFrame object<a class="headerlink" href="#pandas-dataframe-object" title="Link to this heading"></a></h3>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="o">=</span> <span class="n">PointSetIO</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">point_data</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+<div class="output_subarea output_html rendered_html output_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th></th>
+      <th>holeid</th>
+      <th>holeid_color</th>
+    </tr>
+    <tr>
+      <th>x</th>
+      <th>y</th>
+      <th>z</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>445198.219</th>
+      <th>494110.594</th>
+      <th>3057.757537</th>
+      <td>WP001</td>
+      <td>(61, 255, 61)</td>
+    </tr>
+    <tr>
+      <th>445196.625</th>
+      <th>494109.656</th>
+      <th>3054.265408</th>
+      <td>WP002</td>
+      <td>(255, 255, 96)</td>
+    </tr>
+    <tr>
+      <th>445260.563</th>
+      <th>493860.719</th>
+      <th>3009.038328</th>
+      <td>WP003</td>
+      <td>(255, 25, 25)</td>
+    </tr>
+    <tr>
+      <th>445203.344</th>
+      <th>493720.656</th>
+      <th>3033.777664</th>
+      <td>WP004</td>
+      <td>(255, 132, 193)</td>
+    </tr>
+    <tr>
+      <th>445291.563</th>
+      <th>493566.219</th>
+      <th>2957.434730</th>
+      <td>WP005</td>
+      <td>(158, 255, 61)</td>
+    </tr>
+    <tr>
+      <th>445294.031</th>
+      <th>493886.813</th>
+      <th>2970.848677</th>
+      <td>WP006</td>
+      <td>(255, 175, 96)</td>
+    </tr>
+    <tr>
+      <th>445296.594</th>
+      <th>493890.250</th>
+      <th>2974.079767</th>
+      <td>WP007</td>
+      <td>(255, 168, 168)</td>
+    </tr>
+    <tr>
+      <th>445460.813</th>
+      <th>493321.156</th>
+      <th>2979.143623</th>
+      <td>WP008</td>
+      <td>(96, 96, 255)</td>
+    </tr>
+    <tr>
+      <th>445452.313</th>
+      <th>493402.188</th>
+      <th>2980.300987</th>
+      <td>WP009</td>
+      <td>(61, 61, 255)</td>
+    </tr>
+    <tr>
+      <th>445427.219</th>
+      <th>493523.688</th>
+      <th>2978.657715</th>
+      <td>WP010</td>
+      <td>(255, 193, 132)</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+<br />
+<br /></section>
+<section id="geopandas-geodataframe-object">
+<h3>GeoPandas geodataframe object<a class="headerlink" href="#geopandas-geodataframe-object" title="Link to this heading"></a></h3>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">gdf</span><span class="p">:</span> <span class="n">gpd</span><span class="o">.</span><span class="n">geodataframe</span> <span class="o">=</span> <span class="n">PointSetIO</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">point_data</span><span class="p">)</span><span class="o">.</span><span class="n">to_geopandas</span><span class="p">()</span>
+<span class="n">gdf</span>
+</pre></div>
+</div>
+<div class="output_subarea output_html rendered_html output_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>holeid</th>
+      <th>holeid_color</th>
+      <th>geometry</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>WP001</td>
+      <td>(61, 255, 61)</td>
+      <td>POINT Z (445198.219 494110.594 3057.758)</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>WP002</td>
+      <td>(255, 255, 96)</td>
+      <td>POINT Z (445196.625 494109.656 3054.265)</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>WP003</td>
+      <td>(255, 25, 25)</td>
+      <td>POINT Z (445260.563 493860.719 3009.038)</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>WP004</td>
+      <td>(255, 132, 193)</td>
+      <td>POINT Z (445203.344 493720.656 3033.778)</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>WP005</td>
+      <td>(158, 255, 61)</td>
+      <td>POINT Z (445291.563 493566.219 2957.435)</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>WP006</td>
+      <td>(255, 175, 96)</td>
+      <td>POINT Z (445294.031 493886.813 2970.849)</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>WP007</td>
+      <td>(255, 168, 168)</td>
+      <td>POINT Z (445296.594 493890.25 2974.08)</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>WP008</td>
+      <td>(96, 96, 255)</td>
+      <td>POINT Z (445460.813 493321.156 2979.144)</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>WP009</td>
+      <td>(61, 61, 255)</td>
+      <td>POINT Z (445452.313 493402.188 2980.301)</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>WP010</td>
+      <td>(255, 193, 132)</td>
+      <td>POINT Z (445427.219 493523.688 2978.658)</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+<br />
+<br /></section>
+<section id="ply-file">
+<h3>PLY file<a class="headerlink" href="#ply-file" title="Link to this heading"></a></h3>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">ply_filepath</span><span class="p">:</span> <span class="n">Path</span> <span class="o">=</span> <span class="n">PointSetIO</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">point_data</span><span class="p">)</span><span class="o">.</span><span class="n">to_ply</span><span class="p">(</span><span class="n">out_filepath</span><span class="o">.</span><span class="n">with_suffix</span><span class="p">(</span><span class="s1">&#39;.ply&#39;</span><span class="p">),</span> <span class="n">binary</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># read and print the PLY using file.open</span>
+<span class="k">with</span> <span class="n">ply_filepath</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">ply_data</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ply_data</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>ply
+format ascii 1.0
+element vertex 10
+property float x
+property float y
+property float z
+property object holeid
+property object holeid_color
+end_header
+445198.219 494110.594 3057.757537 WP001 (61, 255, 61)
+445196.625 494109.656 3054.265408 WP002 (255, 255, 96)
+445260.563 493860.719 3009.038328 WP003 (255, 25, 25)
+445203.344 493720.656 3033.777664 WP004 (255, 132, 193)
+445291.563 493566.219 2957.43473 WP005 (158, 255, 61)
+445294.031 493886.813 2970.848677 WP006 (255, 175, 96)
+445296.594 493890.25 2974.079767 WP007 (255, 168, 168)
+445460.813 493321.156 2979.143623 WP008 (96, 96, 255)
+445452.313 493402.188 2980.300987 WP009 (61, 61, 255)
+445427.219 493523.688 2978.657715 WP010 (255, 193, 132)
+</pre></div>
+</div>
+</section>
+<section id="pyvista-polydata-object">
+<h3>PyVista Polydata object<a class="headerlink" href="#pyvista-polydata-object" title="Link to this heading"></a></h3>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">poly</span><span class="p">:</span> <span class="n">pv</span><span class="o">.</span><span class="n">PolyData</span> <span class="o">=</span> <span class="n">PointSetIO</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">point_data</span><span class="p">)</span><span class="o">.</span><span class="n">to_pyvista</span><span class="p">()</span>
+<span class="n">poly</span><span class="o">.</span><span class="n">point_data</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>pyvista DataSetAttributes
+Association     : POINT
+Active Scalars  : None
+Active Vectors  : None
+Active Texture  : None
+Active Normals  : None
+Contains arrays :
+    holeid                  &lt;U5        (10,)
+    holeid_color            &lt;U15       (10,)
+</pre></div>
+</div>
+</section>
+<section id="omf-file">
+<h3>OMF file<a class="headerlink" href="#omf-file" title="Link to this heading"></a></h3>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">omf_filepath</span><span class="p">:</span> <span class="n">Path</span> <span class="o">=</span> <span class="n">PointSetIO</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">point_data</span><span class="p">)</span><span class="o">.</span><span class="n">to_omf</span><span class="p">(</span><span class="n">element_name</span><span class="o">=</span><span class="s1">&#39;collar_top_10&#39;</span><span class="p">,</span>
+                                                        <span class="n">output_file</span><span class="o">=</span><span class="n">out_filepath</span><span class="o">.</span><span class="n">with_suffix</span><span class="p">(</span><span class="s1">&#39;.omf&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>View the OMF elements</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">omfr</span><span class="p">:</span> <span class="n">OMFReader</span> <span class="o">=</span> <span class="n">OMFReader</span><span class="p">(</span><span class="n">filepath</span><span class="o">=</span><span class="n">out_filepath</span><span class="o">.</span><span class="n">with_suffix</span><span class="p">(</span><span class="s1">&#39;.omf&#39;</span><span class="p">))</span>
+<span class="n">omfr</span><span class="o">.</span><span class="n">element_types</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>{&#39;collar_top_10&#39;: &#39;PointSet&#39;}
+</pre></div>
+</div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.236 seconds)</p>
+<div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-100-pointset-basics-py">
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
+<p><a class="reference download internal" download="" href="../_downloads/26ee983a299ab8a6ec4ba1769ee7956b/100_pointset_basics.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">100_pointset_basics.ipynb</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../_downloads/35813043715c590e07441227f771c4f9/100_pointset_basics.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">100_pointset_basics.py</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Example Gallery" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../glossary/glossary.html" class="btn btn-neutral float-right" title="Glossary" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Greg Elphick.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

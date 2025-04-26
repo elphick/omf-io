@@ -1,0 +1,6 @@
+omf\_io.utils.pandera\_utils.load\_schema\_from\_yaml
+=====================================================
+
+.. currentmodule:: omf_io.utils.pandera_utils
+
+.. autofunction:: load_schema_from_yaml

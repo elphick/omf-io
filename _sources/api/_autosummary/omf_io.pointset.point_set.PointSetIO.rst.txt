@@ -1,0 +1,35 @@
+omf\_io.pointset.point\_set.PointSetIO
+======================================
+
+.. currentmodule:: omf_io.pointset.point_set
+
+.. autoclass:: PointSetIO
+   :members:
+   :special-members: __add__, __mul__
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~PointSetIO.__init__
+      ~PointSetIO.from_csv
+      ~PointSetIO.from_geopandas
+      ~PointSetIO.from_omf
+      ~PointSetIO.from_ply
+      ~PointSetIO.from_pyvista
+      ~PointSetIO.to_csv
+      ~PointSetIO.to_geopandas
+      ~PointSetIO.to_omf
+      ~PointSetIO.to_pandas
+      ~PointSetIO.to_ply
+      ~PointSetIO.to_pyvista
+   
+   
+
+   
+   
+   

@@ -1,0 +1,6 @@
+omf\_io.utils.decorators.requires\_dependency
+=============================================
+
+.. currentmodule:: omf_io.utils.decorators
+
+.. autofunction:: requires_dependency

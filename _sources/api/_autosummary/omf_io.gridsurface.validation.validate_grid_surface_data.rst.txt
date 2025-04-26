@@ -1,0 +1,6 @@
+omf\_io.gridsurface.validation.validate\_grid\_surface\_data
+============================================================
+
+.. currentmodule:: omf_io.gridsurface.validation
+
+.. autofunction:: validate_grid_surface_data

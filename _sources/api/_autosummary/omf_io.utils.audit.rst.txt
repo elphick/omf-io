@@ -1,0 +1,38 @@
+omf\_io.utils.audit
+===================
+
+.. automodule:: omf_io.utils.audit
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+      :toctree:
+      :nosignatures:
+   
+      get_username
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :toctree:
+   
+      ChangeMessage
+   
+   
+
+   
+   
+   
+
+
+

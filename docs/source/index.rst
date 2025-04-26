@@ -8,10 +8,6 @@ Welcome to omf-io's documentation!
 
    This is not a GMG Group managed project, but leverages the great work by all contributors of the OMF project.
 
-.. image:: ./_static/omf_io_animation.gif
-   :alt: OMF-IO Animation
-   :align: center
-
 .. include:: ../../README.md
    :parser: myst_parser.sphinx_
 
@@ -32,10 +28,3 @@ Welcome to omf-io's documentation!
    license/*
 
 
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`

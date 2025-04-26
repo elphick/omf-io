@@ -256,7 +256,7 @@ class OMFIOPlot:
         anim = FuncAnimation(
             fig, update, frames=list(animation_dict.keys()), interval=int(1000 / framerate), repeat=False
         )
-        anim.save(output_file, writer='imagemagick')
+        anim.save(output_file, writer='pillow')
 
 
 if __name__ == '__main__':

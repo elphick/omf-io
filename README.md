@@ -5,6 +5,8 @@ This package provides a simple interface to read and write OMF files using the [
 The aim of the package is to "Democratise the OMF format" - reducing the barrier to entry for python users to adopt OMF,
 by enabling conversion of existing data into and out of OMF files. This could be for tabular block models, raster files, or any other OMF element.
 
+![OMF-IO Animation](https://raw.githubusercontent.com/elphick/omf-io/4-document-supported-formats/docs/_static/omf_io_animation.gif)
+
 ## Installation
 
 ```bash

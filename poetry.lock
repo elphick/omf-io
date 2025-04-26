@@ -1268,10 +1268,10 @@ testing-docutils = ["pygments", "pytest (>=8,<9)", "pytest-param-files (>=0.6.0,
 name = "networkx"
 version = "3.4.2"
 description = "Python package for creating and manipulating graphs and networks"
-optional = true
+optional = false
 python-versions = ">=3.10"
-groups = ["main"]
-markers = "(extra == \"profile\" or extra == \"all\") and (sys_platform == \"win32\" or sys_platform == \"linux\" or sys_platform != \"win32\" and sys_platform != \"linux\")"
+groups = ["main", "dev"]
+markers = "sys_platform == \"win32\" or sys_platform == \"linux\" or sys_platform != \"win32\" and sys_platform != \"linux\""
 files = [
     {file = "networkx-3.4.2-py3-none-any.whl", hash = "sha256:df5d4365b724cf81b8c6a7312509d0c22386097011ad1abe274afd5e9d3bbc5f"},
     {file = "networkx-3.4.2.tar.gz", hash = "sha256:307c3669428c5362aab27c8a1260aa8f47c4e91d3891f48be0141738d8d053e1"},
@@ -3647,4 +3647,4 @@ validate = ["pandera"]
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.10,<3.13"
-content-hash = "ca1785d9f4e25eb98ef6ecfc8f9ec49930c2b3f403b0ba731fa2d15ed00db11d"
+content-hash = "6d503cbaa8c1dd8ef13b1ffb720dbdf3d243012d2659334c168fc8b895ef8e4f"

@@ -1,6 +1,10 @@
 import os
 import sys
 
+from matplotlib import pyplot as plt
+
+from docs.source.overview_plot import OMFIOPlot, FORMATS, ANIMATION_DICT
+
 image_scrapers = ('matplotlib')
 
 sys.path.insert(0, os.path.abspath('..'))
@@ -68,3 +72,10 @@ html_static_path = ['_static']
 html_css_files = [
     'custom.css',
 ]
+
+# %% create content
+
+omf_plot = OMFIOPlot(FORMATS)
+omf_plot.plot_static()
+plt.savefig('./_static/omf-io-plot.png')
+omf_plot.create_animation(ANIMATION_DICT, "./_static/omf_io_animation.gif", framerate=0.5)

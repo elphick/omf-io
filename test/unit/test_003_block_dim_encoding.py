@@ -1,6 +1,7 @@
 import pytest
 import numpy as np
-from omf_io.utils.spatial_encoding import encode_dimensions, decode_dimensions, MAX_DIM_VALUE
+
+from omf_io.spatial_encoding.encoder import encode_dimensions, decode_dimensions, MAX_DIM_VALUE
 
 
 def test_encode_decode_float_dimensions():
@@ -33,11 +34,11 @@ def test_max_values_dimensions():
 
 
 def test_exceed_max_values_dimensions():
-    with pytest.raises(ValueError, match=f"exceeds the maximum supported value of {MAX_DIM_VALUE}"):
+    with pytest.raises(ValueError, match=f"exceeds the maximum supported value"):
         encode_dimensions(MAX_DIM_VALUE + 0.1, 0, 0)
-    with pytest.raises(ValueError, match=f"exceeds the maximum supported value of {MAX_DIM_VALUE}"):
+    with pytest.raises(ValueError, match=f"exceeds the maximum supported value"):
         encode_dimensions(0, MAX_DIM_VALUE + 0.1, 0)
-    with pytest.raises(ValueError, match=f"exceeds the maximum supported value of {MAX_DIM_VALUE}"):
+    with pytest.raises(ValueError, match=f"exceeds the maximum supported value"):
         encode_dimensions(0, 0, MAX_DIM_VALUE + 0.1)
 
 

@@ -1,6 +1,7 @@
 import pytest
 import numpy as np
-from omf_io.utils.spatial_encoding import encode_coordinates, decode_coordinates, MAX_XY_VALUE, MAX_Z_VALUE
+
+from omf_io.spatial_encoding.encoder import encode_coordinates, decode_coordinates, MAX_XY_VALUE, MAX_Z_VALUE
 
 
 def test_encode_decode_float():
@@ -24,7 +25,7 @@ def test_encode_decode_array():
 
 
 def test_max_values():
-    x, y, z = MAX_XY_VALUE, MAX_XY_VALUE, MAX_Z_VALUE
+    x, y, z = np.array([MAX_XY_VALUE]), np.array([MAX_XY_VALUE]), np.array([MAX_Z_VALUE])
     encoded = encode_coordinates(x, y, z)
     decoded_x, decoded_y, decoded_z = decode_coordinates(encoded)
     assert pytest.approx(decoded_x, 1e-06) == x
@@ -33,20 +34,20 @@ def test_max_values():
 
 
 def test_exceed_max_values():
-    with pytest.raises(ValueError, match=f"exceeds the maximum supported value of {MAX_XY_VALUE}"):
+    with pytest.raises(ValueError, match=f"Coordinate values exceed the maximum supported value."):
         encode_coordinates(MAX_XY_VALUE + 0.1, 0, 0)
-    with pytest.raises(ValueError, match=f"exceeds the maximum supported value of {MAX_XY_VALUE}"):
+    with pytest.raises(ValueError, match=f"Coordinate values exceed the maximum supported value."):
         encode_coordinates(0, MAX_XY_VALUE + 0.1, 0)
-    with pytest.raises(ValueError, match=f"exceeds the maximum supported value of {MAX_Z_VALUE}"):
+    with pytest.raises(ValueError, match=f"Coordinate values exceed the maximum supported value."):
         encode_coordinates(0, 0, MAX_Z_VALUE + 0.1)
 
 
 def test_more_than_one_decimal_place():
-    with pytest.raises(ValueError, match="has more than 1 decimal place"):
+    with pytest.raises(ValueError, match="Coordinate values must have at most 1 decimal place."):
         encode_coordinates(12.345, 0, 0)
-    with pytest.raises(ValueError, match="has more than 1 decimal place"):
+    with pytest.raises(ValueError, match="Coordinate values must have at most 1 decimal place."):
         encode_coordinates(0, 56.789, 0)
-    with pytest.raises(ValueError, match="has more than 1 decimal place"):
+    with pytest.raises(ValueError, match="Coordinate values must have at most 1 decimal place."):
         encode_coordinates(0, 0, 90.123)
 
 
